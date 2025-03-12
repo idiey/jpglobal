@@ -1,0 +1,210 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+
+const contactInfo = [
+    {
+        title: "Visit Us",
+        description:
+            "Unit 81, Bukit Jelutong,Taman Bukit Jelutong,71700, Mantin, Negeri Sembilan",
+        icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+    </svg>`,
+    },
+    {
+        title: "Call Us",
+        description: "+60 3-7625 8800",
+        icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+    </svg>`,
+    },
+    {
+        title: "Email Us",
+        description: "info@jpglobal.com.my",
+        icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+    </svg>`,
+    },
+];
+---
+
+<Layout
+    title="Contact Us - JpGlobal"
+    description="Get in touch with JpGlobal. We're here to help with your agricultural technology needs."
+>
+    <Navbar />
+
+    <!-- Hero Section -->
+    <section
+        class="relative pt-32 pb-20 overflow-hidden bg-gradient-to-b from-gray-50 to-white"
+    >
+        <div
+            class="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-br from-green-400 to-blue-400 rounded-full opacity-20 blur-3xl transform translate-x-1/2 -translate-y-1/2"
+        >
+        </div>
+        <div
+            class="absolute top-20 left-0 w-[600px] h-[600px] bg-gradient-to-tr from-blue-400 to-green-400 rounded-full opacity-20 blur-3xl transform -translate-x-1/2"
+        >
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                    Get in Touch
+                </h1>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Have questions about our solutions? We're here to help and
+                    would love to hear from you.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="py-12 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-bold text-gray-900 mb-8 text-center">
+                Find Us
+            </h2>
+            <div
+                class="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden shadow-lg"
+            >
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.8661325487547!2d101.90103497425791!3d2.819757180655222!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMsKwNDknMTEuMSJOIDEwMcKwNTQnMTEuNiJF!5e0!3m2!1sen!2smy!4v1650000000000!5m2!1sen!2smy"
+                    width="100%"
+                    height="450"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    class="rounded-xl"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Information -->
+    <section class="py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8">
+                {
+                    contactInfo.map((info) => (
+                        <div class="bg-white rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow">
+                            <div
+                                class="text-[#38bdf8] mb-4"
+                                set:html={info.icon}
+                            />
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">
+                                {info.title}
+                            </h3>
+                            <p class="text-gray-600">{info.description}</p>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="bg-white rounded-xl p-8 shadow-lg">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6">
+                        Send us a Message
+                    </h2>
+                    <form class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label
+                                    class="block text-sm font-medium text-gray-700 mb-2"
+                                    >First Name</label
+                                >
+                                <input
+                                    type="text"
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-[#38bdf8] focus:border-[#38bdf8]"
+                                />
+                            </div>
+                            <div>
+                                <label
+                                    class="block text-sm font-medium text-gray-700 mb-2"
+                                    >Last Name</label
+                                >
+                                <input
+                                    type="text"
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-[#38bdf8] focus:border-[#38bdf8]"
+                                />
+                            </div>
+                        </div>
+                        <div>
+                            <label
+                                class="block text-sm font-medium text-gray-700 mb-2"
+                                >Email</label
+                            >
+                            <input
+                                type="email"
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-[#38bdf8] focus:border-[#38bdf8]"
+                            />
+                        </div>
+                        <div>
+                            <label
+                                class="block text-sm font-medium text-gray-700 mb-2"
+                                >Message</label
+                            >
+                            <textarea
+                                rows="4"
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-[#38bdf8] focus:border-[#38bdf8]"
+                            ></textarea>
+                        </div>
+                        <button
+                            type="submit"
+                            class="w-full bg-[#38bdf8] text-white py-3 px-6 rounded-lg hover:bg-[#38bdf8]/90 transition-colors"
+                        >
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+
+                <div>
+                    <div class="bg-gray-50 rounded-xl p-8 mb-8">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">
+                            Office Hours
+                        </h2>
+                        <div class="space-y-3">
+                            <p class="text-gray-600">
+                                Monday - Friday: 9:00 AM - 6:00 PM
+                            </p>
+                            <p class="text-gray-600">
+                                Saturday: 9:00 AM - 1:00 PM
+                            </p>
+                            <p class="text-gray-600">Sunday: Closed</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 rounded-xl p-8">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">
+                            Follow Us
+                        </h2>
+                        <div class="flex space-x-4">
+                            <a
+                                href="#"
+                                class="text-gray-600 hover:text-[#38bdf8]"
+                            >
+                                <span class="sr-only">Facebook</span>
+                                <svg
+                                    class="w-6 h-6"
+                                    fill="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
+                                    ></path>
+                                </svg>
+                            </a>
+                            <!-- Add more social media icons as needed -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</Layout>

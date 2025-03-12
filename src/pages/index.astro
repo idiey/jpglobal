@@ -1,60 +1,80 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Navbar from '../components/Navbar.astro';
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
 
 const stats = [
   {
-    number: '2,000+',
-    label: 'farmers',
-    description: 'using the FarmByte App'
+    number: "2,000+",
+    endNumber: 2000,
+    label: "farmers",
+    description: "using the JpGlobal App",
   },
   {
-    number: '2,000+',
-    label: 'tonne',
-    description: 'offtake by FarmByte from our local farmers'
+    number: "2,000+",
+    endNumber: 2000,
+    label: "tonne",
+    description: "offtake by JpGlobal from our local farmers",
   },
   {
-    number: 'RM8+',
-    label: 'million',
-    description: 'paid to farmers'
+    number: "8+",
+    endNumber: 8,
+    prefix: "RM",
+    label: "million",
+    description: "paid to farmers",
   },
   {
-    number: '3-day',
-    label: 'payment',
-    description: 'made to farmers, on average'
-  }
+    number: "3",
+    endNumber: 3,
+    suffix: "-day",
+    label: "payment",
+    description: "made to farmers, on average",
+  },
 ];
 
 const partners = [
-  { name: 'Jabatan Pertanian', logo: '/partners/jabatan-pertanian.png' },
-  { name: 'MARDI', logo: '/partners/mardi.png' },
-  { name: 'UPM', logo: '/partners/upm.png' },
-  { name: 'Waqaf An-Nur', logo: '/partners/waqaf.png' },
-  { name: 'AWS', logo: '/partners/aws.png' }
+  { name: "Jabatan Pertanian", logo: "/partners/jabatan-pertanian.png" },
+  { name: "MARDI", logo: "/partners/mardi.png" },
+  { name: "UPM", logo: "/partners/upm.png" },
+  { name: "Waqaf An-Nur", logo: "/partners/waqaf.png" },
+  { name: "AWS", logo: "/partners/aws.png" },
 ];
 ---
 
-<Layout 
-  title="FarmByte - Leading a New Innovative Era in Agrofood"
+<Layout
+  title="JpGlobal - Leading a New Innovative Era in Agrofood"
   description="Leveraging the power of technology, we are committed in our work across the agrofood value chain to secure the future of food and uplift the livelihoods of farmers."
 >
   <Navbar />
-  
+
   <!-- Hero Section with Gradient Circles -->
   <section class="relative pt-32 pb-20 overflow-hidden">
-    <div class="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-br from-green-400 to-blue-400 rounded-full opacity-20 blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
-    <div class="absolute top-20 left-0 w-[600px] h-[600px] bg-gradient-to-tr from-blue-400 to-green-400 rounded-full opacity-20 blur-3xl transform -translate-x-1/2"></div>
-    
+    <div
+      class="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-br from-green-400 to-blue-400 rounded-full opacity-20 blur-3xl transform translate-x-1/2 -translate-y-1/2"
+    >
+    </div>
+    <div
+      class="absolute top-20 left-0 w-[600px] h-[600px] bg-gradient-to-tr from-blue-400 to-green-400 rounded-full opacity-20 blur-3xl transform -translate-x-1/2"
+    >
+    </div>
+
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
       <div class="text-center">
-        <p class="text-2xl text-[#38bdf8] mb-4">Welcome to FarmByte</p>
+        <p class="text-2xl text-[#38bdf8] mb-4">Welcome to JpGlobal</p>
         <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-          Leading a New Innovative Era in <span class="text-green-500">Agrofood</span>
+          Leading a New Innovative Era in <span class="text-green-500"
+            >Agrofood</span
+          >
         </h1>
         <p class="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-          Leveraging the power of technology, we are committed in our work across the agrofood value chain – from upstream and midstream, to downstream – to secure the future of food and uplift the livelihoods of farmers.
+          Leveraging the power of technology, we are committed in our work
+          across the agrofood value chain – from upstream and midstream, to
+          downstream – to secure the future of food and uplift the livelihoods
+          of farmers.
         </p>
-        <a href="#discover" class="bg-[#38bdf8] text-white px-8 py-3 rounded-full hover:bg-[#38bdf8]/90 transition-colors inline-block">
+        <a
+          href="#discover"
+          class="bg-[#38bdf8] text-white px-8 py-3 rounded-full hover:bg-[#38bdf8]/90 transition-colors inline-block"
+        >
           Discover More
         </a>
       </div>
@@ -65,16 +85,28 @@ const partners = [
   <section class="py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="text-center text-2xl text-green-500 mb-16">
-        Modernising the Agrofood Industry, Providing Transparency and Increasing Incomes, one farmer at a time
+        Modernising the Agrofood Industry, Providing Transparency and Increasing
+        Incomes, one farmer at a time
       </h2>
-      <div class="grid md:grid-cols-4 gap-8 text-center">
-        {stats.map(stat => (
-          <div>
-            <div class="text-[#38bdf8] text-4xl font-bold mb-2">{stat.number}</div>
-            <div class="text-xl text-gray-600 mb-1">{stat.label}</div>
-            <div class="text-gray-500">{stat.description}</div>
-          </div>
-        ))}
+      <div class="stats-grid grid md:grid-cols-4 gap-8 text-center">
+        {
+          stats.map((stat) => (
+            <div>
+              <div class="text-[#38bdf8] text-4xl font-bold mb-2">
+                <span
+                  class="stat-number"
+                  data-target={stat.endNumber}
+                  data-prefix={stat.prefix}
+                  data-suffix={stat.suffix}
+                >
+                  0
+                </span>
+              </div>
+              <div class="text-xl text-gray-600 mb-1">{stat.label}</div>
+              <div class="text-gray-500">{stat.description}</div>
+            </div>
+          ))
+        }
       </div>
     </div>
   </section>
@@ -86,29 +118,47 @@ const partners = [
         <!-- Farmers Card -->
         <div class="bg-[#86efac] rounded-3xl p-12 relative overflow-hidden">
           <div class="relative z-10">
-            <h3 class="text-4xl font-bold text-white mb-4">FarmByte for Farmers</h3>
+            <h3 class="text-4xl font-bold text-white mb-4">
+              JpGlobal for Farmers
+            </h3>
             <p class="text-white/90 text-xl mb-8">
               An all-in-one app providing transparent insights to farmers
             </p>
-            <a href="#farmers" class="bg-white text-green-500 px-8 py-3 rounded-full inline-block hover:bg-gray-50 transition-colors">
+            <a
+              href="#farmers"
+              class="bg-white text-green-500 px-8 py-3 rounded-full inline-block hover:bg-gray-50 transition-colors"
+            >
               Find Out More
             </a>
           </div>
-          <img src="/app-screenshot.png" alt="FarmByte App" class="absolute right-0 bottom-0 h-80 object-contain" />
+          <img
+            src="/app-screenshot.png"
+            alt="FarmByte App"
+            class="absolute right-0 bottom-0 h-80 object-contain"
+          />
         </div>
 
         <!-- Buyers Card -->
         <div class="bg-[#38bdf8] rounded-3xl p-12 relative overflow-hidden">
           <div class="relative z-10">
-            <h3 class="text-4xl font-bold text-white mb-4">FarmByte for Buyers</h3>
+            <h3 class="text-4xl font-bold text-white mb-4">
+              JpGlobal for Buyers
+            </h3>
             <p class="text-white/90 text-xl mb-8">
               A marketplace connecting you to produce from local farmers
             </p>
-            <a href="#buyers" class="bg-white text-[#38bdf8] px-8 py-3 rounded-full inline-block hover:bg-gray-50 transition-colors">
+            <a
+              href="#buyers"
+              class="bg-white text-[#38bdf8] px-8 py-3 rounded-full inline-block hover:bg-gray-50 transition-colors"
+            >
               Find Out More
             </a>
           </div>
-          <img src="/produce.png" alt="Fresh Produce" class="absolute right-0 bottom-0 h-80 object-contain" />
+          <img
+            src="/produce.png"
+            alt="Fresh Produce"
+            class="absolute right-0 bottom-0 h-80 object-contain"
+          />
         </div>
       </div>
     </div>
@@ -118,14 +168,21 @@ const partners = [
   <section class="py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="text-center text-2xl text-green-500 mb-16">
-        Our network of esteemed partners and contributors to the growth of sustainable agriculture.
+        Our network of esteemed partners and contributors to the growth of
+        sustainable agriculture.
       </h2>
       <div class="grid grid-cols-2 md:grid-cols-5 gap-8 items-center">
-        {partners.map(partner => (
-          <div class="flex justify-center">
-            <img src={partner.logo} alt={partner.name} class="h-12 object-contain" />
-          </div>
-        ))}
+        {
+          partners.map((partner) => (
+            <div class="flex justify-center">
+              <img
+                src={partner.logo}
+                alt={partner.name}
+                class="h-12 object-contain"
+              />
+            </div>
+          ))
+        }
       </div>
     </div>
   </section>
@@ -135,7 +192,7 @@ const partners = [
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div class="grid md:grid-cols-5 gap-8">
         <div class="col-span-2">
-          <img src="/logo.svg" alt="FarmByte" class="h-8 mb-4" />
+          <img src="/logo.png" alt="JpGlobal" class="h-8 mb-4" />
           <p class="text-gray-500">A JCORP Company</p>
         </div>
         <div>
@@ -144,27 +201,113 @@ const partners = [
         <div>
           <h4 class="font-semibold mb-4">Solutions</h4>
           <ul class="space-y-2">
-            <li><a href="#farmer-app" class="text-gray-500 hover:text-primary">Farmer App</a></li>
-            <li><a href="#marketplace" class="text-gray-500 hover:text-primary">Marketplace</a></li>
+            <li>
+              <a href="#farmer-app" class="text-gray-500 hover:text-primary"
+                >Farmer App</a
+              >
+            </li>
+            <li>
+              <a href="#marketplace" class="text-gray-500 hover:text-primary"
+                >Marketplace</a
+              >
+            </li>
           </ul>
         </div>
         <div>
           <h4 class="font-semibold mb-4">Resources</h4>
           <ul class="space-y-2">
-            <li><a href="#newsroom" class="text-gray-500 hover:text-primary">Newsroom</a></li>
-            <li><a href="#knowledge" class="text-gray-500 hover:text-primary">Knowledge Base</a></li>
-            <li><a href="#blog" class="text-gray-500 hover:text-primary">Blog</a></li>
-            <li><a href="#faq" class="text-gray-500 hover:text-primary">FAQ</a></li>
+            <li>
+              <a href="#newsroom" class="text-gray-500 hover:text-primary"
+                >Newsroom</a
+              >
+            </li>
+            <li>
+              <a href="#knowledge" class="text-gray-500 hover:text-primary"
+                >Knowledge Base</a
+              >
+            </li>
+            <li>
+              <a href="#blog" class="text-gray-500 hover:text-primary">Blog</a>
+            </li>
+            <li>
+              <a href="#faq" class="text-gray-500 hover:text-primary">FAQ</a>
+            </li>
           </ul>
         </div>
       </div>
-      <div class="mt-12 pt-8 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center">
-        <p class="text-gray-500">© 2025 FarmByte. All rights reserved.</p>
+      <div
+        class="mt-12 pt-8 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center"
+      >
+        <p class="text-gray-500">© 2025 JpGlobal. All rights reserved.</p>
         <div class="flex gap-4 mt-4 md:mt-0">
-          <a href="#privacy" class="text-gray-500 hover:text-primary">Privacy Policy</a>
-          <a href="#terms" class="text-gray-500 hover:text-primary">Sales Terms & conditions</a>
+          <a href="#privacy" class="text-gray-500 hover:text-primary"
+            >Privacy Policy</a
+          >
+          <a href="#terms" class="text-gray-500 hover:text-primary"
+            >Sales Terms & conditions</a
+          >
         </div>
       </div>
     </div>
   </footer>
 </Layout>
+
+<!-- Add this script before the closing </Layout> tag -->
+<script>
+  function animateValue(
+    element: HTMLElement,
+    start: number,
+    end: number,
+    duration: number,
+  ) {
+    const prefix = element.dataset.prefix || "";
+    const suffix = element.dataset.suffix || "+";
+    let startTimestamp: number | null = null;
+
+    const step = (timestamp: number) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+      const currentNumber = Math.floor(progress * (end - start) + start);
+      element.textContent = `${prefix}${currentNumber}${suffix}`;
+
+      if (progress < 1) {
+        window.requestAnimationFrame(step);
+      }
+    };
+
+    window.requestAnimationFrame(step);
+  }
+
+  // Create an Intersection Observer
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Get all stat numbers in the container
+          const container = entry.target;
+          const numbers = container.querySelectorAll(".stat-number");
+
+          // Animate each number
+          numbers.forEach((number) => {
+            const target = parseInt(
+              (number as HTMLElement).dataset.target || "0",
+            );
+            animateValue(number as HTMLElement, 0, target, 2000); // 2000ms = 2 seconds duration
+          });
+
+          // Unobserve after animation starts
+          observer.unobserve(container);
+        }
+      });
+    },
+    {
+      threshold: 0.1, // Trigger when 10% of the element is visible
+    },
+  );
+
+  // Observe the stats container with specific class
+  const statsContainer = document.querySelector(".stats-grid");
+  if (statsContainer) {
+    observer.observe(statsContainer);
+  }
+</script>

@@ -1,30 +1,63 @@
 ---
 const navItems = [
-  { name: 'About Us', href: '#about' },
-  { name: 'Solutions', href: '#solutions' },
-  { name: 'Resources', href: '#resources' },
-  { name: 'Contact Us', href: '#contact' }
+  { name: "About Us", href: "/about" },
+  { name: "Solutions", href: "/solutions" },
+  { name: "Resources", href: "/resources" },
+  { name: "Contact Us", href: "/contact" },
 ];
 ---
 
-<nav class="fixed w-full bg-white/90 backdrop-blur-sm z-50 shadow-sm">
+<nav
+  class="fixed w-[98%] left-1/2 -translate-x-1/2 top-1 bg-orange-400/80 backdrop-blur-sm z-50 shadow-sm rounded-2xl transition-colors duration-300"
+  id="navbar"
+>
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between h-16">
       <div class="flex-shrink-0 flex items-center">
         <a href="/" class="flex items-center">
-          <img src="/logo.svg" alt="FarmByte" class="h-8" />
+          <img src="/logo.png" alt="JpGlobal" class="h-8" />
         </a>
       </div>
       <div class="hidden md:flex items-center space-x-8">
-        {navItems.map(item => (
-          <a href={item.href} class="text-gray-700 hover:text-primary transition-colors">
-            {item.name}
-          </a>
-        ))}
-        <a href="#join" class="bg-[#38bdf8] text-white px-6 py-2 rounded-full hover:bg-[#38bdf8]/90 transition-colors">
+        {
+          navItems.map((item) => (
+            <a
+              href={item.href}
+              class:list={[
+                "transition-colors",
+                "hover:text-[#38bdf8]",
+                {
+                  "text-[#38bdf8] font-medium":
+                    Astro.url.pathname === item.href,
+                  "text-gray-700": Astro.url.pathname !== item.href,
+                },
+              ]}
+            >
+              {item.name}
+            </a>
+          ))
+        }
+        <a
+          href="#join"
+          class="bg-[#38bdf8] text-white px-6 py-2 rounded-full hover:bg-[#38bdf8]/90 transition-colors"
+        >
           Join Us
         </a>
       </div>
     </div>
   </div>
 </nav>
+
+<script>
+  const navbar = document.getElementById("navbar");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 100) {
+      navbar?.classList.remove("bg-orange-400/80");
+      navbar?.classList.add("bg-white/90");
+    } else {
+      navbar?.classList.remove("bg-white/90");
+      navbar?.classList.add("bg-orange-400/80");
+    }
+  });
+</script>

@@ -1,0 +1,80 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+
+const solutions = [
+    {
+        title: "FarmByte App",
+        description: "Complete farm management solution for farmers",
+        features: [
+            "Real-time crop monitoring",
+            "Weather forecasting",
+            "Market price insights",
+            "Digital payment system",
+        ],
+        image: "/solutions/farmbyte-app.jpg",
+    },
+    {
+        title: "Marketplace Platform",
+        description: "Direct connection between farmers and buyers",
+        features: [
+            "Direct market access",
+            "Transparent pricing",
+            "Quality assurance",
+            "Logistics support",
+        ],
+        image: "/solutions/marketplace.jpg",
+    },
+];
+---
+
+<Layout
+    title="Solutions - JpGlobal"
+    description="Discover our innovative agricultural solutions designed to empower farmers and transform the agrofood industry."
+>
+    <Navbar />
+
+    <main class="pt-32 pb-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
+                Our Solutions
+            </h1>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                {
+                    solutions.map((solution) => (
+                        <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+                            <img
+                                src={solution.image}
+                                alt={solution.title}
+                                class="w-full h-64 object-cover"
+                            />
+                            <div class="p-8">
+                                <h3 class="text-2xl font-bold text-gray-900 mb-4">
+                                    {solution.title}
+                                </h3>
+                                <p class="text-gray-600 mb-6">
+                                    {solution.description}
+                                </p>
+                                <ul class="space-y-2">
+                                    {solution.features.map((feature) => (
+                                        <li class="flex items-center text-gray-600">
+                                            <svg
+                                                class="w-5 h-5 text-green-500 mr-2"
+                                                fill="currentColor"
+                                                viewBox="0 0 20 20"
+                                            >
+                                                <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
+                                            </svg>
+                                            {feature}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </main>
+</Layout>

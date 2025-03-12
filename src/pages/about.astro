@@ -1,0 +1,172 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+
+const team = [
+    {
+        name: "Sarah Chen",
+        position: "Chief Executive Officer",
+        image: "/team/ceo.jpg",
+    },
+    {
+        name: "Dr. Ahmad Rahman",
+        position: "Head of Agricultural Innovation",
+        image: "/team/agriculture-head.jpg",
+    },
+    {
+        name: "Michael Wong",
+        position: "Chief Technology Officer",
+        image: "/team/cto.jpg",
+    },
+];
+
+const values = [
+    {
+        title: "Innovation",
+        description:
+            "Continuously pushing boundaries in agricultural technology",
+        icon: `<svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+    </svg>`,
+    },
+    {
+        title: "Sustainability",
+        description: "Promoting environmentally conscious farming practices",
+        icon: `<svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9zm0 16c-3.86 0-7-3.14-7-7s3.14-7 7-7 7 3.14 7 7-3.14 7-7 7zm-3-9h6v2h-6v-2z"></path>
+    </svg>`,
+    },
+    {
+        title: "Empowerment",
+        description: "Enabling farmers with tools for success",
+        icon: `<svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"></path>
+    </svg>`,
+    },
+];
+---
+
+<Layout
+    title="About Us - JpGlobal"
+    description="Learn about JpGlobal's mission to transform agriculture through technology and innovation."
+>
+    <Navbar />
+
+    <!-- Hero Section -->
+    <section
+        class="relative pt-32 pb-20 bg-gradient-to-b from-gray-50 to-white overflow-hidden"
+    >
+        <div class="absolute inset-0">
+            <div
+                class="absolute inset-0 bg-gradient-to-r from-green-50 to-blue-50 opacity-70"
+            >
+            </div>
+            <div
+                class="absolute right-0 top-1/2 w-1/2 h-1/2 bg-gradient-to-bl from-[#38bdf8]/10 to-transparent rounded-full blur-3xl"
+            >
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="text-center max-w-3xl mx-auto">
+                <h1
+                    class="text-4xl md:text-6xl font-bold text-gray-900 mb-6 tracking-tight"
+                >
+                    Transforming Agriculture Through Innovation
+                </h1>
+                <p class="text-xl text-gray-600 leading-relaxed">
+                    JpGlobal is at the forefront of agricultural innovation,
+                    leveraging technology to create sustainable solutions for
+                    farmers and the entire agrofood ecosystem.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-16">
+                <div
+                    class="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-12 shadow-lg hover:shadow-xl transition-shadow duration-300"
+                >
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">
+                        Our Mission
+                    </h2>
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                        To transform traditional farming practices through
+                        innovative technology, ensuring food security while
+                        improving farmers' livelihoods through sustainable and
+                        efficient agricultural solutions.
+                    </p>
+                </div>
+                <div
+                    class="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-12 shadow-lg hover:shadow-xl transition-shadow duration-300"
+                >
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">
+                        Our Vision
+                    </h2>
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                        To be the leading agritech company in Southeast Asia,
+                        creating a sustainable and efficient agricultural
+                        ecosystem that benefits both farmers and consumers while
+                        ensuring food security for future generations.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="py-20 bg-gradient-to-b from-gray-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center">
+                Our Values
+            </h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                {
+                    values.map((value) => (
+                        <div class="bg-white rounded-xl p-8 shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+                            <div
+                                class="text-[#38bdf8] mb-4 bg-blue-50 w-16 h-16 rounded-xl flex items-center justify-center"
+                                set:html={value.icon}
+                            />
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">
+                                {value.title}
+                            </h3>
+                            <p class="text-gray-600">{value.description}</p>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center">
+                Leadership Team
+            </h2>
+            <div class="grid md:grid-cols-3 gap-12">
+                {
+                    team.map((member) => (
+                        <div class="text-center group">
+                            <div class="relative inline-block mb-6">
+                                <div class="absolute inset-0 bg-gradient-to-br from-[#38bdf8] to-green-400 rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
+                                <img
+                                    src={member.image}
+                                    alt={member.name}
+                                    class="w-48 h-48 rounded-full mx-auto object-cover ring-4 ring-gray-50 shadow-lg"
+                                />
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">
+                                {member.name}
+                            </h3>
+                            <p class="text-gray-600">{member.position}</p>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+</Layout>

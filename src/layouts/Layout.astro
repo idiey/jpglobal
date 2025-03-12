@@ -5,10 +5,10 @@ interface Props {
   image?: string;
 }
 
-const { 
-  title = "FarmByte - Smart Farming Solutions",
-  description = "Transform your farming with FarmByte's smart agriculture solutions. Increase productivity and sustainability with our innovative farming technology.",
-  image = "/social-image.jpg"
+const {
+  title = "JpGlobal - Smart Farming Solutions",
+  description = "Transform your farming with JpGlobal's smart agriculture solutions. Increase productivity and sustainability with our innovative farming technology.",
+  image = "/social-image.jpg",
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -21,31 +21,34 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    
+
     <!-- Primary Meta Tags -->
     <title>{title}</title>
     <meta name="title" content={title} />
     <meta name="description" content={description} />
-    
+
     <!-- Canonical URL -->
     <link rel="canonical" href={canonicalURL} />
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={image} />
-    
+
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={canonicalURL} />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={image} />
-    
+
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body class="font-[Inter]">
     <slot />
@@ -64,7 +67,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       white 60%
     );
   }
-  
+
   html {
     scroll-behavior: smooth;
   }
